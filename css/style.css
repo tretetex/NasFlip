@@ -1,0 +1,266 @@
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, .5);
+    -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+}
+
+body {
+    background: #ffffff;  
+    font-family: 'Roboto', sans-serif;  
+    font-size: 16px;
+    min-width: 800px;
+}
+
+.error {
+    background-color: #ffbaba;
+}
+
+.error div {
+    padding: 10px;
+}
+
+.error a {
+    color: #dc3545;
+}
+
+header {
+    background: #563d7c;
+    margin-bottom: 30px;
+}
+
+header .container {
+    height: 60px;
+    color: #F1F1F1;
+    width: 1000px;
+}
+
+#logo {
+    font-size: 18px;
+    text-decoration: none;
+    background-color: #4a336d;
+    padding: 0 15px;    
+}
+
+#logo b {
+    font-size: 22px;
+    margin-left: 5px;
+}
+
+nav a {
+    padding: 5px 15px;    
+    color: #ffffff;
+    text-decoration: none;
+    margin-right: 30px;
+    border-radius: 2px;
+}
+
+nav a:hover {
+    text-decoration: none;
+    background-color: #4a336d;
+    color: #e9e502;
+}
+
+#logo b sup {
+    font-size: 12px;
+    top: -10px;
+}
+
+#totalGames {
+    padding-left: 10px;
+}
+
+#wallet {
+    font-size: 14px;
+}
+
+.wrapper, .wallet-input {
+    width: 600px;
+    margin-right: 50px;
+    margin-bottom: 30px;
+}
+
+.play-container {
+    background-color: #635080;
+    border: #563d7c 6px solid;
+    border-radius: 3px;
+    margin: 0;
+    margin-bottom: 40px;
+    padding: 15px 10px;
+}
+
+.play-container .label {
+    color: #ffffff;
+}
+
+.coinSide input {
+    visibility: hidden;
+    position: absolute !important;
+}
+
+.coinSide input + label > img {
+    border: 4px solid transparent;
+    cursor:pointer;
+}
+
+.coinSide input:checked + label > img,
+.coinSide input:hover + label > img {
+    border: 4px solid rgb(255, 230, 0);
+    border-radius: 50px;
+}
+
+#flip-btn {
+    width: 140px;
+    height: 60px;
+}
+
+.right-sidebar {
+    width: 200px;
+}
+
+.block-title {
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.wallet-info {
+    margin-bottom: 40px;
+    background-color: #f0f0f0;
+    padding: 10px 15px;
+    color: #563d7c;
+    border-radius: 2px;
+    font-size: 14px;
+}
+
+.wallet-info p {
+    margin: 0;
+}
+
+/* RESULTS */
+.lastGames .item {
+    color: #979797;
+    height: 36px;
+    font-size: 12px;
+    margin: 0;
+    margin-bottom: 10px;
+    border-radius: 2px;
+    background-color: rgb(240, 240, 240);
+    padding: 5px 0px;
+
+}
+
+.lastGames .item .amount {
+    color: #6cdb04;
+    font-size: 14px;
+}
+
+.lastGames .item .amount-loss {
+    color: #db6504;
+    font-size: 14px;
+}
+
+.lastGames .item img {
+    width: 25px;
+    height: 25px;
+}
+
+.games-history {
+    color: #563d7c;
+    border-radius: 2px;
+}
+
+.games-history img {
+    width: 30px;
+    height: 30px;
+}
+
+.games-history .game {
+    background-color: #f0f0f0;
+    height: 40px;
+    margin: 0;
+}
+
+.games-history .game:nth-child(even) {
+    background-color: #eaeaea;
+    border-radius: 2px;
+}
+
+.games-history .amount {
+    color: #28a745;
+}
+
+.games-history .amount-loss {
+    color: #dc3545;
+}
+
+.games-history .date {
+    font-size: 14px;
+}
+
+footer {
+    padding: 25px;
+    margin-top: 50px;
+    height: 80px;
+    color: #635080;
+}
+
+/* Loading */
+
+.lds-ellipsis {
+    display: inline-block;
+    position: relative;
+    width: 64px;
+    height: 27px;
+  }
+  .lds-ellipsis div {
+    position: absolute;
+    top: 7px;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: #7e58b9;
+    animation-timing-function: cubic-bezier(0, 1, 1, 0);
+  }
+  .lds-ellipsis div:nth-child(1) {
+    left: 6px;
+    animation: lds-ellipsis1 0.6s infinite;
+  }
+  .lds-ellipsis div:nth-child(2) {
+    left: 6px;
+    animation: lds-ellipsis2 0.6s infinite;
+  }
+  .lds-ellipsis div:nth-child(3) {
+    left: 26px;
+    animation: lds-ellipsis2 0.6s infinite;
+  }
+  .lds-ellipsis div:nth-child(4) {
+    left: 45px;
+    animation: lds-ellipsis3 0.6s infinite;
+  }
+  @keyframes lds-ellipsis1 {
+    0% {
+      transform: scale(0);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  @keyframes lds-ellipsis3 {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(0);
+    }
+  }
+  @keyframes lds-ellipsis2 {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(19px, 0);
+    }
+  }

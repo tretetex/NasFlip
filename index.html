@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+        crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,800" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="img/coin-front.png" type="image/png">
+    <title>Nebulas Coin Flip</title>
+</head>
+
+<body>
+
+    <div class="text-center error">
+        <div class="noExtension" hidden>
+            Please install
+            <a target="_blank" href="https://github.com/ChengOrangeJu/WebExtensionWallet" target="_blank">WebExtensionWallet</a> to use CoinFlip
+        </div>
+        <div class="noExtensionLogin" hidden>
+            Please login in WebExtensionWallet
+        </div>
+    </div>
+
+    <header>
+        <div class="container d-flex align-items-center">
+            <nav class="col-md-5 d-flex justify-content-start align-items-center">
+                <a id="logo" href="" class="d-flex align-items-center">
+                    NAS
+                    <b>Flip
+                        <sup>beta</sup>
+                    </b>
+                </a>
+                <a href="#" data-toggle="modal" data-target="#faqModal">FAQ</a>
+            </nav>
+            <div class="col-md-2 d-flex align-items-center">
+                Total games:
+                <span id="totalGames"> ... </span>
+            </div>
+            <div class="col-md-5 d-flex justify-content-end align-items-center" id="wallet"></div>
+        </div>
+    </header>
+
+    <div class="container d-flex justify-content-center">
+        <div class="wrapper">
+
+            <p class="block-title">Сheck your luck</p>
+
+            <div class="row play-container">
+                <div class="form-group col-md-3">
+                    <label class="label" for="betSize">Bet size</label>
+                    <select class="form-control form-control" type="text" placeholder="NAS amount" id="betSize">
+                        <option>0</option>
+                        <option>0.001</option>
+                        <option>0.002</option>
+                        <option>0.004</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-3">
+                    <label class="label" for="flipsCount">Flips count</label>
+                    <select class="form-control form-control" type="text" placeholder="NAS amount" id="flipsCount">
+                        <option>1</option>
+                        <option>3</option>
+                        <option>5</option>
+                    </select>
+                </div>
+                <div class="d-flex coinSide col-md-4">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="coinSideFrontRadio" value="front">
+                        <label class="form-check-label" for="coinSideFrontRadio">
+                            <img src="img/coin-front.png">
+                        </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="coinSideBackRadio" value="back">
+                        <label class="form-check-label" for="coinSideBackRadio">
+                            <img src="img/coin-back.png">
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-2 d-flex align-items-center">
+                    <button type="button" class="btn btn-warning" id="flip-btn">Flip</button>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="block-title">Wallet history</div>
+                <div class="loader"></div>
+            </div>
+
+            <div class="games-history">
+                <div class="row d-flex align-items-center game"></div>
+                <div class="row d-flex align-items-center game"></div>
+                <div class="row d-flex align-items-center game"></div>
+            </div>
+        </div>
+
+        <div class="right-sidebar">
+
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="block-title">Wallet info</div>
+                <div class="loader"></div>
+            </div>
+            <div class="wallet-info">
+
+                <p>
+                    <div class="d-flex justify-content-between">
+                        <div>Profit: </div>
+                        <div>
+                            <span id="walletEv">0</span> NAS</div>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <div>Wins: </div>
+                        <div id="walletWonCount">0</div>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <div>Losses: </div>
+                        <div id="walletLossCount">0</div>
+                    </div>
+                </p>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="block-title">Last 10 games</div>
+                <div class="loader"></div>
+            </div>
+            <div class="lastGames">
+                <div class="row d-flex align-items-center item"></div>
+                <div class="row d-flex align-items-center item"></div>
+                <div class="row d-flex align-items-center item"></div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-center">
+        <div class="content">Copyright 2018</div>
+    </footer>
+
+    <!-- Modal FAQ-->
+    <div class="modal fade" id="faqModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Nebulas Coin Flip</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    This application allows you to flip virtual coins.
+                    
+                    <br> It is built on dapp and can be used with a <a href="https://nebulas.io/" target="_blank">Nebulas</a> wallet with
+                    <a href="https://github.com/ChengOrangeJu/WebExtensionWallet" target="_blank">WebExtensionWallet</a>.
+                    <hr>
+                    <br> Beta: currently, you can use only a zero bet amount.
+                    <br> Support for the remaining bets will be added later.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bignumber.js/7.0.1/bignumber.min.js"></script>
+
+    <script src="lib/nebPay.js"></script>
+    <script src="js/contract.api.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+
+        let isExtensionExist;
+        window.addEventListener("load", function () {
+            isExtensionExist = typeof (webExtensionWallet) !== "undefined";
+            if (!isExtensionExist) {
+                document.querySelector(".noExtension").attributes.removeNamedItem("hidden");
+            }
+            else {
+                showLoaders();
+                updateData();
+            }
+        });
+
+        setInterval(function () {
+            updateData();
+        }, 10000);
+
+        $('#faqModal').on('show.bs.modal', onModalShowHandler);
+        function onModalShowHandler(event) {
+            let button = $(event.relatedTarget);
+            let modal = $(this);
+        }  
+    </script>
+
+
+</body>
+
+</html>
